@@ -1,7 +1,7 @@
 from pytest_kubernetes.providers.base import AClusterManager
 from pytest_kubernetes.options import ClusterOptions
 from typing import Optional
-from pathlib import PosixPath
+from pathlib import Path, PosixPath
 
 class ExternalManager(AClusterManager):
 
