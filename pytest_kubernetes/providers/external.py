@@ -5,7 +5,7 @@ from pathlib import PosixPath
 
 class ExternalManager(AClusterManager):
 
-    kubeconfig = PosixPath("~/.kube/config").resolve()
+    kubeconfig = PosixPath("~/.kube/config").expanduser()
 
     @classmethod
     def get_binary_name(self) -> str:
@@ -20,7 +20,7 @@ class ExternalManager(AClusterManager):
     @property
     def kubeconfig(self) -> Optional[Path]:
         # TODO: make this configurable
-        return PosixPath("~/.kube/config").resolve()
+        return PosixPath("~/.kube/config").expanduser()
 
     def load_image(self, image: str) -> None:
         raise NotImplementedError
