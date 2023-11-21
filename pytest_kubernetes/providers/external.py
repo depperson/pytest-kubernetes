@@ -5,7 +5,7 @@ from pathlib import PosixPath
 
 class ExternalManager(AClusterManager):
 
-    kubeconfig = Path("../.kube/config").resolve()
+    kubeconfig = PosixPath("~/.kube/config").resolve()
 
     @classmethod
     def get_binary_name(self) -> str:
