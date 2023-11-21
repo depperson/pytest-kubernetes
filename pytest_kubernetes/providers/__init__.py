@@ -4,7 +4,7 @@ from pytest_kubernetes.providers.base import AClusterManager
 from .k3d import K3dManager
 from .kind import KindManager
 from .minikube import MinikubeDockerManager, MinikubeKVM2Manager
-
+from .external import ExternalManager
 
 def select_provider_manager(name: Optional[str] = None) -> Type[AClusterManager]:
     if name:
@@ -14,6 +14,7 @@ def select_provider_manager(name: Optional[str] = None) -> Type[AClusterManager]
             "minikube": MinikubeDockerManager,
             "minikube-docker": MinikubeDockerManager,
             "minikube-kvm2": MinikubeKVM2Manager,
+            "external": ExternalManager,
         }
         provider = providers.get(name.lower(), None)
         if not provider:
